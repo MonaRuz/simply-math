@@ -1,0 +1,12 @@
+.resultBox{
+    font-size: 25px;
+    height: 400px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+.result{
+    text-align: center;
+    font-size: 40px;
+}

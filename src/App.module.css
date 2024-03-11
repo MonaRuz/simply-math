@@ -1,0 +1,50 @@
+.app {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+    justify-content: center;
+	
+}
+.title {
+    font-size: 50px;
+	font-family: "Anta", sans-serif;
+	font-weight: 500;
+	font-style: normal;
+    color: rgb(92, 68, 134);
+    
+}
+.form {
+    display: flex;
+	flex-direction: column;
+	align-items: center;
+    justify-content: center;
+	background-color: var(--bg-color);
+	padding:0 50px 30px;
+	border-radius: 20px;
+}
+.formTitle{
+    border-bottom: 1px solid rgb(92, 68, 134);
+}
+.textInput{
+    background: transparent;
+    border: 1px solid ;
+    outline:none;
+    border-radius: 5px;
+    height: 25px;
+}
+.numEx{
+    margin-top: 20px;
+}
+.label{
+    font-weight: 700;
+}
+
+.btnBox{
+    margin-top: 20px;
+    display: flex;
+    justify-content: center;
+}
+.radioBox{
+    display: flex;
+    justify-content: space-around;
+}

@@ -1,0 +1,30 @@
+body {
+    --bg-color:rgba(142, 104, 179, 0.559);
+    --text-color:rgb(63, 45, 93);
+    --title-color:rgb(92, 68, 134);
+
+
+	background-image: url("./assets/retrofuturistic_enchanted_parallel_universe.jpg");
+	background-repeat: no-repeat;
+	background-size: cover;
+	font-family: "Montserrat", sans-serif;
+	font-optical-sizing: auto;
+    color: var(--text-color);
+    font-weight: 500;
+
+    
+}
+.btn{
+    font: inherit;
+    background-color: transparent;
+    border:2px solid var(--text-color);
+    border-radius: 7px;
+    color: var(--text-color) ;
+    padding:8px 10px;
+    font-size: 18px;
+}
+.btn:hover{
+    color: rgb(207, 205, 249) ;
+    background-color: var(--text-color);
+   
+}
