@@ -44,7 +44,6 @@ export default function Settings({ setIsRunning }) {
 			return alert("Všechna pole musí být vyplněna!!!")
         //uložení do local storage
 		localStorage.setItem("settings", JSON.stringify(newSettings))
-		console.log("saved")
 		setIsRunning(true)
 	}
 
