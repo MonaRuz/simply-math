@@ -1,4 +1,4 @@
-import useSettings from "./hooks/useSettings"
+import useExamples from "./hooks/useExamples"
 import { useEffect } from "react"
 import useFocus from "./hooks/useFocus"
 import Result from "./Result"
@@ -27,7 +27,7 @@ export default function Examples({ onReset }) {
 		correctCounter,
 		rating,
 		randomNumbers,
-	} = useSettings(type, minNum, maxNum, minRes, maxRes)
+	} = useExamples(type, minNum, maxNum, minRes, maxRes)
 
 	useEffect(
 		function () {
