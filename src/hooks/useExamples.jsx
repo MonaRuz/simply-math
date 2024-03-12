@@ -1,6 +1,7 @@
 import { useState, useCallback } from "react"
 
-export default function useExamples(type, minNum, maxNum, minRes, maxRes) {
+export default function useExamples(settings) {
+	const { type, minNum, maxNum, minRes, maxRes } = settings
 	//první číslo v příkladu
 	const [firstNum, setFirstNum] = useState("")
 

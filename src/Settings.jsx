@@ -1,5 +1,5 @@
 import { useState } from "react"
-import styles from "./App.module.css"
+import styles from "./Settings.module.css"
 
 export default function Settings({ setIsRunning }) {
 	//sčítání nebo odčítání

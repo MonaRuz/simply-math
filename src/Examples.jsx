@@ -3,14 +3,14 @@ import { useEffect } from "react"
 import useFocus from "./hooks/useFocus"
 import Result from "./Result"
 import styles from "./Examples.module.css"
+import useLocalStorage from "./hooks/useLocalStorage"
 
 export default function Examples({ onReset }) {
-	//přijmutí dat z local storage
-	const data = localStorage.getItem("settings")
-	const settings = JSON.parse(data)
+	//hook k přijmutí dat z local storage
+	const[settings,setSettings]=useLocalStorage([],"settings")
 
 	//destructuring dat z local storage
-	const { type, minNum, maxNum, minRes, maxRes, numEx, ratingType } = settings
+	const { type, numEx, ratingType } = settings
 
 	//volání hooku na focus pro input u příkladu
 	const [inputRef, setInputFocus] = useFocus()
@@ -27,7 +27,11 @@ export default function Examples({ onReset }) {
 		correctCounter,
 		rating,
 		randomNumbers,
-	} = useExamples(type, minNum, maxNum, minRes, maxRes)
+	} = useExamples(settings)
+
+	function handleBack() {
+		onReset()
+	}
 
 	useEffect(
 		function () {
@@ -63,12 +67,20 @@ export default function Examples({ onReset }) {
 					}}
 				/>
 			</div>
-			<button
-				className='btn'
-				onClick={handleResult}
-			>
-				Kontrola
-			</button>
+			<div className={styles.btnBox}>
+				<button
+					className='btn'
+					onClick={handleResult}
+				>
+					Kontrola
+				</button>
+				<button
+					className='btn'
+					onClick={handleBack}
+				>
+					Zpět
+				</button>
+			</div>
 		</div>
 	)
 }
