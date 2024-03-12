@@ -1,12 +1,25 @@
-.resultBox{
-    font-size: 25px;
-    height: 400px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
+.resultBox {
+	font-size: 25px;
+	height: 400px;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+    
 }
-.result{
-    text-align: center;
-    font-size: 40px;
+.result {
+	font-family: "Dancing Script", cursive;
+	font-optical-sizing: auto;
+	font-weight: 700;
+	font-style: normal;
+
+
+
+	font-size: 40px;
+
+    margin:20px 0;
+}
+.emoji {
+	margin: 0 0 20px 0;
+	font-size: 50px;
 }

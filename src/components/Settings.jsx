@@ -178,7 +178,7 @@ export default function Settings({ setIsRunning }) {
 						</div>
 					</div>
 					<div className={styles.btnBox}>
-						<button className='btn'>Spustit procvičování</button>
+						<button className='btn'>Spustit příklady</button>
 					</div>
 				</form>
 			</div>

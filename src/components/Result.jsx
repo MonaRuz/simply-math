@@ -25,6 +25,17 @@ export default function Result({
 	//uložení známky do proměnné
 	const grade = getGrade(percentage)
 
+	function getEmoji(percentage) {
+		let emoji
+		if (percentage <= 20) emoji = "😣"
+		if (percentage > 20 && percentage <= 40) emoji = "😔"
+		if (percentage > 40 && percentage <= 60) emoji = "😐"
+		if (percentage > 60 && percentage <= 80) emoji = "🙂"
+		if (percentage > 80) emoji = "😎"
+		return emoji
+	}
+
+	const emoji = getEmoji(percentage)
 
 	return (
 		<div className={styles.resultBox}>
@@ -40,6 +51,7 @@ export default function Result({
 					<p className={styles.result}>{grade}</p>
 				</>
 			)}
+			<p className={styles.emoji}>{emoji}</p>
 			<button
 				className='btn'
 				onClick={onReset}
