@@ -1,7 +1,7 @@
 import { useState } from "react"
-import Examples from "./Examples"
+import Examples from "./components/Examples"
 import styles from "./App.module.css"
-import Settings from "./Settings"
+import Settings from "./components/Settings"
 
 export default function App() {
 	//nastavení spuštění příkladů

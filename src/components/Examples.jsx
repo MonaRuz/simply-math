@@ -1,9 +1,9 @@
-import useExamples from "./hooks/useExamples"
+import useExamples from "../hooks/useExamples"
 import { useEffect } from "react"
-import useFocus from "./hooks/useFocus"
+import useFocus from "../hooks/useFocus"
 import Result from "./Result"
 import styles from "./Examples.module.css"
-import useLocalStorage from "./hooks/useLocalStorage"
+import useLocalStorage from "../hooks/useLocalStorage"
 
 export default function Examples({ onReset }) {
 	//hook k přijmutí dat z local storage
@@ -81,6 +81,9 @@ export default function Examples({ onReset }) {
 				>
 					Zpět
 				</button>
+			</div>
+			<div>
+				<p className={styles.progress}>{correctCounter+1} / {numEx}</p>
 			</div>
 		</div>
 	)

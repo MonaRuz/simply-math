@@ -35,3 +35,7 @@
     align-items: center;
     justify-content: center;
 }
+.progress{
+    font-size: 30px;
+    text-align: center;
+}
