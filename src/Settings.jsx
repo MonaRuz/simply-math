@@ -76,6 +76,26 @@ export default function Settings({ setIsRunning }) {
 								/>
 								odčítání
 							</label>
+                            <label htmlFor='multiplication'>
+								<input
+									type='radio'
+									id='multiplication'
+									value='*'
+									checked={type === "*"}
+									onChange={(e) => setType(e.target.value)}
+								/>
+								násobení
+							</label>
+                            <label htmlFor='division'>
+								<input
+									type='radio'
+									id='division'
+									value='/'
+									checked={type === "/"}
+									onChange={(e) => setType(e.target.value)}
+								/>
+								dělení
+							</label>
 						</div>
 					</div>
 					<div>

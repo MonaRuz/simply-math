@@ -17,34 +17,8 @@ export default function useExamples(settings) {
 	//počítadlo cyb
 	const [wrongCounter, setWrongCounter] = useState(0)
 
-	//výpočet procentuální úspěšnosti po dokončení příkladů
-	const percentage = Math.floor(
-		(correctCounter / (correctCounter + wrongCounter)) * 100
-	)
-
-	//přiřazení známek k %
-	function getGrade(percentage) {
-		let grade
-		if (percentage <= 20) grade = 5
-		if (percentage > 20 && percentage <= 40) grade = 4
-		if (percentage > 40 && percentage <= 60) grade = 3
-		if (percentage > 60 && percentage <= 80) grade = 2
-		if (percentage > 80) grade = 1
-		return grade
-	}
-	//uložení známky do proměnné
-	const grade = getGrade(percentage)
-
-	//uložení úspěsnosti do objektu
-	const rating = {
-		percentage,
-		grade,
-	}
-
-
 	//memoizace funkce pro generaci náhodných čísel
 	const randomNumbers = useCallback(
-
 		//generování pole náhodných čísel pro jeden příklad
 		function randomNumbers() {
 			const numArr = [
@@ -64,8 +38,19 @@ export default function useExamples(settings) {
 
 			//rekurzivní funkce pro kontrolu a uložení náhodných čísel do state pro odčítání
 			if (type === "-") {
-
 				if (numArr[0] - numArr[1] >= minRes) {
+					setFirstNum(numArr.at(0))
+					setSecondNum(numArr.at(1))
+				} else {
+					randomNumbers()
+				}
+			}
+			if (type === "*") {
+				setFirstNum(numArr.at(0))
+				setSecondNum(numArr.at(1))
+			}
+			if (type === "/") {
+				if (numArr[0] % numArr[1] === 0 && numArr[0]!==numArr[1]) {
 					setFirstNum(numArr.at(0))
 					setSecondNum(numArr.at(1))
 				} else {
@@ -106,6 +91,29 @@ export default function useExamples(settings) {
 				setResult("")
 			}
 		}
+
+		//kontrola výsledku při násobení
+		if (type === "*") {
+			if (Number(result) === Number(firstNum) * Number(secondNum)) {
+				setResult("")
+				setCorrectCounter((c) => c + 1)
+				randomNumbers()
+			} else {
+				setWrongCounter((c) => c + 1)
+				setResult("")
+			}
+		}
+		//kontrola výsledku při odčítání
+		if (type === "/") {
+			if (Number(result) === Number(firstNum) / Number(secondNum)) {
+				setResult("")
+				setCorrectCounter((c) => c + 1)
+				randomNumbers()
+			} else {
+				setWrongCounter((c) => c + 1)
+				setResult("")
+			}
+		}
 	}
 
 	//output
@@ -117,6 +125,6 @@ export default function useExamples(settings) {
 		handleResult,
 		randomNumbers,
 		correctCounter,
-		rating,
+		wrongCounter,
 	}
 }

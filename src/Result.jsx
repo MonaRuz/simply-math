@@ -2,12 +2,28 @@ import styles from "./Result.module.css"
 
 export default function Result({
 	onReset,
-	rating,
 	ratingType,
+	correctCounter,
+	wrongCounter
 }) {
 
-	//destructuring prop
-	const { percentage, grade } = rating
+	//výpočet procentuální úspěšnosti po dokončení příkladů
+	const percentage = Math.floor(
+		(correctCounter / (correctCounter + wrongCounter)) * 100
+	)
+
+	//přiřazení známek k %
+	function getGrade(percentage) {
+		let grade
+		if (percentage <= 20) grade = 5
+		if (percentage > 20 && percentage <= 40) grade = 4
+		if (percentage > 40 && percentage <= 60) grade = 3
+		if (percentage > 60 && percentage <= 80) grade = 2
+		if (percentage > 80) grade = 1
+		return grade
+	}
+	//uložení známky do proměnné
+	const grade = getGrade(percentage)
 
 
 	return (

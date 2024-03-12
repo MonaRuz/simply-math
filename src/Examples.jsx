@@ -17,7 +17,7 @@ export default function Examples({ onReset }) {
 
 	setInputFocus()
 
-	//volání hooku pro zpracování dat
+	//volání hooku pro tvorbu příkladu
 	const {
 		firstNum,
 		secondNum,
@@ -25,7 +25,7 @@ export default function Examples({ onReset }) {
 		setResult,
 		handleResult,
 		correctCounter,
-		rating,
+		wrongCounter,
 		randomNumbers,
 	} = useExamples(settings)
 
@@ -44,8 +44,9 @@ export default function Examples({ onReset }) {
 		return (
 			<Result
 				onReset={onReset}
-				rating={rating}
 				ratingType={ratingType}
+				correctCounter={correctCounter}
+				wrongCounter={wrongCounter}
 			/>
 		)
 
