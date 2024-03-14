@@ -46,11 +46,13 @@ export default function useExamples(settings) {
 				}
 			}
 			if (type === "*") {
-				setFirstNum(numArr.at(0))
-				setSecondNum(numArr.at(1))
+				if (numArr[0] * numArr[1] <= maxRes) {
+					setFirstNum(numArr.at(0))
+					setSecondNum(numArr.at(1))
+				}
 			}
 			if (type === "/") {
-				if (numArr[0] % numArr[1] === 0 && numArr[0]!==numArr[1]) {
+				if (numArr[0] % numArr[1] === 0 && numArr[0] !== numArr[1] && numArr[0] / numArr[1] >= minRes) {
 					setFirstNum(numArr.at(0))
 					setSecondNum(numArr.at(1))
 				} else {

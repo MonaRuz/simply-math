@@ -19,6 +19,8 @@ export default function Settings({ setIsRunning }) {
 	//Typ hodnocení
 	const [ratingType, setRatingType] = useState("")
 
+	const[numbers,setNumbers]=useState()
+
 	function handleSaveData(e) {
 		e.preventDefault()
 		//uložení inputů do objektu
@@ -39,7 +41,9 @@ export default function Settings({ setIsRunning }) {
 			!minRes ||
 			!maxRes ||
 			!numEx ||
-			!ratingType
+			!ratingType||
+			numbers
+			
 		)
 			return alert("Všechna pole musí být vyplněna!!!")
         //uložení do local storage
@@ -179,6 +183,9 @@ export default function Settings({ setIsRunning }) {
 								Známka jako ve škole
 							</label>
 						</div>
+					</div>
+					<div className={styles.numbers}>
+						<input type="text" value={numbers} onChange={(e)=>setNumbers(e.target.value)} />
 					</div>
 					<div className={styles.btnBox}>
 						<button className='btn'>Spustit příklady</button>

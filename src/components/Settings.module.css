@@ -40,6 +40,9 @@
 .radioInput{
     margin-left: 17px;
 }
+.numbers{
+    display: none;
+}
 
 @media screen and (max-width: 615px) {
 	.form {
