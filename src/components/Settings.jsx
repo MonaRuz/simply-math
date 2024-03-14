@@ -48,14 +48,13 @@ export default function Settings({ setIsRunning }) {
 	}
 
 	return (
-		<div className={styles.app}>
-			<div className={styles.form}>
+		<div className={styles.settings}>
 				<h2 className={styles.formTitle}>Nastavení příkladů</h2>
-				<form onSubmit={handleSaveData}>
-					<div>
-						<p className={styles.label}>Operace</p>
+				<form className={styles.form} onSubmit={handleSaveData}>
+					<div >
+						<p className={styles.label}>Operace:</p>
 						<div className={styles.radioBox}>
-							<label htmlFor='plus'>
+							<label className={styles.radioInput} htmlFor='plus'>
 								<input
 									type='radio'
 									id='plus'
@@ -66,7 +65,7 @@ export default function Settings({ setIsRunning }) {
 								sčítání
 							</label>
 
-							<label htmlFor='minus'>
+							<label className={styles.radioInput} htmlFor='minus'>
 								<input
 									type='radio'
 									id='minus'
@@ -76,7 +75,7 @@ export default function Settings({ setIsRunning }) {
 								/>
 								odčítání
 							</label>
-                            <label htmlFor='multiplication'>
+                            <label className={styles.radioInput} htmlFor='multiplication'>
 								<input
 									type='radio'
 									id='multiplication'
@@ -86,7 +85,7 @@ export default function Settings({ setIsRunning }) {
 								/>
 								násobení
 							</label>
-                            <label htmlFor='division'>
+                            <label className={styles.radioInput} htmlFor='division'>
 								<input
 									type='radio'
 									id='division'
@@ -98,8 +97,9 @@ export default function Settings({ setIsRunning }) {
 							</label>
 						</div>
 					</div>
-					<div>
-						<h4>Rozsah čísel v příkladu:</h4>
+					<div className={styles.range}>
+					<div >
+						<h4 className={styles.label}>Rozsah čísel v příkladu:</h4>
 						<label htmlFor='min-num'>Od </label>
 						<input
 							className={styles.textInput}
@@ -117,8 +117,8 @@ export default function Settings({ setIsRunning }) {
 							onChange={(e) => setMaxNum(e.target.value)}
 						/>
 					</div>
-					<div>
-						<h4>Rozsah výsledku:</h4>
+					<div className={styles.range}>
+						<h4 className={styles.label}>Rozsah výsledku:</h4>
 						<label htmlFor='min-res'>Od </label>
 						<input
 							className={styles.textInput}
@@ -136,25 +136,28 @@ export default function Settings({ setIsRunning }) {
 							onChange={(e) => setMaxRes(e.target.value)}
 						/>
 					</div>
+					</div>
+					
 					<div className={styles.numEx}>
 						<label
 							className={styles.label}
 							htmlFor='numEx'
 						>
 							Počet příkladů:{" "}
-							<input
+							
+						</label>
+						<input
 								className={styles.textInput}
 								type='text'
 								id='numEx'
 								value={numEx}
 								onChange={(e) => setNumEx(e.target.value)}
 							/>
-						</label>
 					</div>
 					<div>
 						<p className={styles.label}>Typ hodnocení:</p>
 						<div className={styles.radioBox}>
-							<label htmlFor='percentage'>
+							<label className={styles.radioInput} htmlFor='percentage'>
 								<input
 									type='radio'
 									id='percentage'
@@ -165,7 +168,7 @@ export default function Settings({ setIsRunning }) {
 								Procenta
 							</label>
 
-							<label htmlFor='grade'>
+							<label className={styles.radioInput} htmlFor='grade'>
 								<input
 									type='radio'
 									id='grade'
@@ -182,6 +185,5 @@ export default function Settings({ setIsRunning }) {
 					</div>
 				</form>
 			</div>
-		</div>
 	)
 }

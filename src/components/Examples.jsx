@@ -57,9 +57,9 @@ export default function Examples({ onReset }) {
 					{firstNum} {type} {secondNum} =
 				</p>
 				<input
+					className={styles.input}
 					ref={inputRef}
 					autoFocus
-					className={styles.input}
 					type='text'
 					value={result}
 					onChange={(e) => setResult(e.target.value)}
