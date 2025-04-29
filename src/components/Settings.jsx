@@ -6,8 +6,14 @@ export default function Settings({ setIsRunning }) {
 	const [type, setType] = useState("")
 
 	//rozsah čísel v příkladu
-	const [minNum, setMinNum] = useState("")
-	const [maxNum, setMaxNum] = useState("")
+	// const [minNum, setMinNum] = useState("")
+	// const [maxNum, setMaxNum] = useState("")
+
+	//maximální hodnota 1. čísla v příkladu
+	const[maxFirstNum,setMaxFirstNum]=useState("")
+
+	//maximální hodnosta 2. čísla v příkladu
+	const[maxSecondNum,setMaxSecondNum]=useState("")
 
 	//rozsah čísel ve výsledku
 	const [minRes, setMinRes] = useState("")
@@ -26,8 +32,8 @@ export default function Settings({ setIsRunning }) {
 		//uložení inputů do objektu
 		const newSettings = {
 			type: type,
-			minNum: minNum,
-			maxNum: maxNum,
+			maxFirstNum: maxFirstNum,
+			maxSecondNum: maxSecondNum,
 			minRes: minRes,
 			maxRes: maxRes,
 			numEx: numEx,
@@ -36,14 +42,13 @@ export default function Settings({ setIsRunning }) {
         //validace
 		if (
 			!type ||
-			!minNum ||
-			!maxNum ||
+			!maxFirstNum ||
+			!maxSecondNum ||
 			!minRes ||
 			!maxRes ||
 			!numEx ||
 			!ratingType||
 			numbers
-			
 		)
 			return alert("Všechna pole musí být vyplněna!!!")
         //uložení do local storage
